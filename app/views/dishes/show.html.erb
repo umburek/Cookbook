@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ingredients:</strong>
+  <%= @dish.ingredients %>
+</p>
+
+<p>
+  <strong>Preparation:</strong>
+  <%= @dish.preparation %>
+</p>
+
+<p>
+  <strong>Preparation time:</strong>
+  <%= @dish.preparation_time %>
+</p>
+
+<p>
+  <strong>Multiplier:</strong>
+  <%= @dish.multiplier %>
+</p>
+
+<%= link_to 'Edit', edit_dish_path(@dish) %> |
+<%= link_to 'Back', dishes_path %>
