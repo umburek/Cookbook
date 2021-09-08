@@ -11,27 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :ingredients %>
-    <%= form.text_field :ingredients %>
+  <div class="field form-group">
+    <% form.label :ingredients %>
+    <%= form.text_field :ingredients, class:"form-control", placeholder:"Ingredients" %>
   </div>
 
-  <div class="field">
-    <%= form.label :preparation %>
-    <%= form.text_field :preparation %>
+  <div class="field form-group">
+    <% form.label :preparation %>
+    <%= form.text_field :preparation, class:"form-control", placeholder:"Preparation" %>
   </div>
 
-  <div class="field">
-    <%= form.label :preparation_time %>
-    <%= form.number_field :preparation_time %>
+  <div class="field form-group">
+    <% form.label :preparation_time %>
+    <%= form.number_field :preparation_time, class:"form-control", placeholder:"Preparation time" %>
   </div>
 
-  <div class="field">
-    <%= form.label :multiplier %>
-    <%= form.text_field :multiplier %>
+  <div class="field form-group">
+    <% form.label :multiplier %>
+    <%= form.text_field :multiplier, class:"form-control", placeholder:"Multiplier" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-secondary' %>
   </div>
 <% end %>
