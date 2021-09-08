@@ -1,10 +1,10 @@
-<%= form_with(model: dish) do |form| %>
-  <% if dish.errors.any? %>
+<%= form_with(model: recipe) do |form| %>
+  <% if recipe.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(dish.errors.count, "error") %> prohibited this dish from being saved:</h2>
+      <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
 
       <ul>
-        <% dish.errors.each do |error| %>
+        <% recipe.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>

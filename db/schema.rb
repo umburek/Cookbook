@@ -10,21 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_06_134500) do
-
-  create_table "dishes", force: :cascade do |t|
-    t.string "ingredients"
-    t.string "preparation"
-    t.integer "preparation_time"
-    t.float "multiplier"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+ActiveRecord::Schema.define(version: 2021_09_08_102722) do
 
   create_table "ingredients", force: :cascade do |t|
     t.float "ingredients_quantity"
     t.string "ingredients_unit"
     t.string "ingredients_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.string "ingredients"
+    t.string "preparation"
+    t.integer "preparation_time"
+    t.float "multiplier"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
