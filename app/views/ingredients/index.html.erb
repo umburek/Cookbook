@@ -3,9 +3,9 @@
 <table class="table table-stripes table-bordered table-hover">
   <thead>
     <tr>
+      <th>Ingredients name</th>
       <th>Ingredients quantity</th>
       <th>Ingredients unit</th>
-      <th>Ingredients name</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -13,9 +13,9 @@
   <tbody>
     <% @ingredients.each do |ingredient| %>
       <tr>
+        <td><%= ingredient.ingredients_name %></td>
         <td><%= ingredient.ingredients_quantity %></td>
         <td><%= ingredient.ingredients_unit %></td>
-        <td><%= ingredient.ingredients_name %></td>
         <td><%= link_to 'Show', ingredient, class:"btn btn-secondary" %></td>
         <td><%= link_to 'Edit', edit_ingredient_path(ingredient), class:"btn btn-secondary" %></td>
         <td><%= link_to 'Destroy', ingredient, class:"btn btn-secondary", method: :delete, data: { confirm: 'Are you sure?' } %></td>

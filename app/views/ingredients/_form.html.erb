@@ -11,22 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :ingredients_quantity %>
-    <%= form.text_field :ingredients_quantity %>
+  <div class="field form-group">
+    <% form.label :ingredients_name %>
+    <%= form.text_field :ingredients_name, class:"form-control", placeholder:"Ingredient Name"  %>
   </div>
 
-  <div class="field">
-    <%= form.label :ingredients_unit %>
-    <%= form.text_field :ingredients_unit %>
+  <div class="field form-group">
+    <% form.label :ingredients_quantity %>
+    <%= form.text_field :ingredients_quantity, class:"form-control", placeholder:"Quantity"  %>
   </div>
 
-  <div class="field">
-    <%= form.label :ingredients_name %>
-    <%= form.text_field :ingredients_name %>
+  <div class="field form-group">
+    <% form.label :ingredients_unit %>
+    <%= form.text_field :ingredients_unit, class:"form-control", placeholder:"Unit"  %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-secondary'  %>
   </div>
 <% end %>
