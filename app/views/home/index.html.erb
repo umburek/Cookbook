@@ -12,9 +12,19 @@
   </thead>
 
   <tbody>
-  <% @ingredients_recipes.each do |recipe| %>
+  <% @ingredients.each do |ingredient| %>
     <tr>
-      <td><%= recipe.ingredients %></td>
+      <td><%= ingredient.ingredients_name %></td>
+      <td><%= ingredient.ingredients_quantity %></td>
+      <td><%= ingredient.ingredients_unit %></td>
+      <td><%= link_to 'Show', ingredient, class:"btn btn-secondary" %></td>
+      <td><%= link_to 'Edit', edit_ingredient_path(ingredient), class:"btn btn-secondary" %></td>
+      <td><%= link_to 'Destroy', ingredient, class:"btn btn-secondary", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+
+  <% @recipes.each do |recipe| %>
+    <tr>
       <td><%= recipe.preparation %></td>
       <td><%= recipe.preparation_time %></td>
       <td><%= recipe.multiplier %></td>
