@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   def index
     @recipes = Recipe.all
+    @ingredients = Ingredient.all
   end
 
   # GET /recipes/1 or /recipes/1.json

@@ -16,7 +16,6 @@
     <% @recipes.each do |recipe| %>
       <% if recipe.user == current_user %>
       <tr>
-        <td><%= recipe.ingredients %></td>
         <td><%= recipe.preparation %></td>
         <td><%= recipe.preparation_time %></td>
         <td><%= recipe.multiplier %></td>

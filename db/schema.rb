@@ -10,18 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_09_105830) do
+ActiveRecord::Schema.define(version: 2021_09_27_093537) do
 
   create_table "ingredients", force: :cascade do |t|
-    t.string "ingredients_name"
-    t.float "ingredients_quantity"
     t.string "ingredients_unit"
+    t.string "ingredients_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "ingredients_recipe", force: :cascade do |t|
+    t.integer "recipe_id"
+    t.integer "ingredient_id"
+    t.float "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ingredient_id"], name: "index_ingredients_recipe_on_ingredient_id"
+    t.index ["recipe_id"], name: "index_ingredients_recipe_on_recipe_id"
+  end
+
   create_table "recipes", force: :cascade do |t|
-    t.string "ingredients"
     t.string "preparation"
     t.integer "preparation_time"
     t.float "multiplier"
@@ -43,4 +51,6 @@ ActiveRecord::Schema.define(version: 2021_09_09_105830) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "ingredients_recipe", "ingredients"
+  add_foreign_key "ingredients_recipe", "recipes"
 end

@@ -31,9 +31,19 @@
     <%= form.text_field :multiplier, class:"form-control", placeholder:"Multiplier" %>
   </div>
 
-  <div class="field form-group">
-    <% form.label :user_id %>
-    <%= form.number_field :user_id, id: :recipes_user_id, class:"form-control", value: current_user.id, type: :hidden %>
+  <div>
+    <input type="checkbox" id="scales" name="scales">
+    <label for="scales">Maka</label>
+  </div>
+
+  <div>
+    <input type="checkbox" id="horns" name="horns">
+    <label for="horns">Woda</label>
+  </div>
+
+  <div>
+    <input type="checkbox" id="horns" name="horns">
+    <label for="horns">Mleko</label>
   </div>
 
   <div class="actions">

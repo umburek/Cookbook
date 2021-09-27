@@ -14,7 +14,7 @@
     <% @ingredients.each do |ingredient| %>
       <tr>
         <td><%= ingredient.ingredients_name %></td>
-        <td><%= ingredient.ingredients_quantity %></td>
+
         <td><%= ingredient.ingredients_unit %></td>
         <td><%= link_to 'Show', ingredient, class:"btn btn-secondary" %></td>
         <td><%= link_to 'Edit', edit_ingredient_path(ingredient), class:"btn btn-secondary" %></td>
