@@ -11,6 +11,7 @@
   </thead>
 
   <tbody>
+  <% @recipes.each do |recipe| %>
   <% @ingredients.each do |ingredient| %>
     <tr>
       <td><%= ingredient.ingredients_name %></td>
@@ -20,9 +21,7 @@
     </tr>
   <% end %>
   </tbody>
-</table>
 
-<table class="table  table-stripes table-bordered table-hover">
   <thead>
   <tr>
     <th>Preparation</th>
@@ -31,7 +30,6 @@
   </tr>
   </thead>
 
-  <% @recipes.each do |recipe| %>
     <tr>
       <td><%= recipe.preparation %></td>
       <td><%= recipe.preparation_time %></td>
