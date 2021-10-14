@@ -14,8 +14,10 @@
   <% @ingredients.each do |ingredient| %>
     <tr>
       <td><%= ingredient.ingredients_name %></td>
-      <td> <% recipe.ingredients_recipes.each do |ingredients_recipe| %>
-        <%= ingredients_recipe.quantity %></td>
+      <td> <% @recipes.each do |recipe| %>
+         <% recipe.ingredients_recipes.each do |ingredients_recipe| %>
+          <%= ingredients_recipe.quantity %></td>
+         <% end %>
         <% end %>
       <td><%= ingredient.ingredients_unit %></td>
     </tr>
