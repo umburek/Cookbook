@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_27_103522) do
+ActiveRecord::Schema.define(version: 2021_10_28_160054) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string "ingredients_unit"
@@ -19,14 +19,14 @@ ActiveRecord::Schema.define(version: 2021_09_27_103522) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "ingredients_recipe", force: :cascade do |t|
+  create_table "ingredients_recipes", force: :cascade do |t|
     t.integer "recipe_id"
     t.integer "ingredient_id"
     t.float "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["ingredient_id"], name: "index_ingredients_recipe_on_ingredient_id"
-    t.index ["recipe_id"], name: "index_ingredients_recipe_on_recipe_id"
+    t.index ["ingredient_id"], name: "index_ingredients_recipes_on_ingredient_id"
+    t.index ["recipe_id"], name: "index_ingredients_recipes_on_recipe_id"
   end
 
   create_table "recipes", force: :cascade do |t|
@@ -52,6 +52,6 @@ ActiveRecord::Schema.define(version: 2021_09_27_103522) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "ingredients_recipe", "ingredients"
-  add_foreign_key "ingredients_recipe", "recipes"
+  add_foreign_key "ingredients_recipes", "ingredients"
+  add_foreign_key "ingredients_recipes", "recipes"
 end
