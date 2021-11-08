@@ -1,3 +1,13 @@
+<%= form_with(model: @ingredient) do |form| %>
+  <div class="field form-group">
+    <% form.label :ingredients %>
+    <%= form.text_field :ingredient, class:"form-control", placeholder:"Ingredient" %>
+  </div>
+
+  <%= link_to 'Add ingredient', new_ingredient_path, class: "btn btn-secondary" %>
+
+<% end %>
+
 <%= form_with(model: recipe) do |form| %>
   <% if recipe.errors.any? %>
     <div id="error_explanation">
@@ -12,11 +22,6 @@
   <% end %>
 
   <div class="field form-group">
-    <% form.label :ingredients %>
-    <%= form.text_field :ingredient, class:"form-control", placeholder:"Ingredients" %>
-  </div>
-
-  <div class="field form-group">
     <% form.label :preparation %>
     <%= form.text_field :preparation, class:"form-control", placeholder:"Preparation" %>
   </div>
@@ -29,21 +34,6 @@
   <div class="field form-group">
     <% form.label :multiplier %>
     <%= form.text_field :multiplier, class:"form-control", placeholder:"Multiplier" %>
-  </div>
-
-  <div>
-    <input type="checkbox" id="scales" name="scales">
-    <label for="scales">Maka</label>
-  </div>
-
-  <div>
-    <input type="checkbox" id="horns" name="horns">
-    <label for="horns">Woda</label>
-  </div>
-
-  <div>
-    <input type="checkbox" id="horns" name="horns">
-    <label for="horns">Mleko</label>
   </div>
 
   <div class="actions">

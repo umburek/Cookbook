@@ -22,6 +22,7 @@ class IngredientsController < ApplicationController
   # POST /ingredients or /ingredients.json
   def create
     @ingredient = Ingredient.new(ingredient_params)
+    @ingredients_recipe = IngredientsRecipe.new(@ingredients_recipe_params)
 
     respond_to do |format|
       if @ingredient.save
