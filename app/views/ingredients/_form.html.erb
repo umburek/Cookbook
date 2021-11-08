@@ -18,8 +18,8 @@
 
   <%= form_with(model: @ingredients_recipe) do |form| %>
     <div class="field form-group">
-      <% form.label :ingredients_quantity %>
-      <%= form.text_field :ingredients_quantity, class:"form-control", placeholder:"Quantity"  %>
+      <% form.label :ingredients_recipe_quantity %>
+      <%= form.text_field :ingredients_recipe_quantity, class:"form-control", placeholder:"Quantity"  %>
     </div>
   <% end %>
 
@@ -30,6 +30,5 @@
 
   <div class="actions">
     <%= form.submit class: 'btn btn-secondary'  %>
-    <% link_to 'New Recipe', new_recipe_path %>
   </div>
 <% end %>
