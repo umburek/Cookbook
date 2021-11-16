@@ -22,7 +22,6 @@ class IngredientsController < ApplicationController
   # POST /ingredients or /ingredients.json
   def create
     @ingredient = Ingredient.new(ingredient_params)
-    @ingredients_recipe = IngredientsRecipe.new(@ingredients_recipe_params)
 
     respond_to do |format|
       if @ingredient.save
@@ -65,6 +64,6 @@ class IngredientsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ingredient_params
-      params.require(:ingredient).permit(:ingredients_quantity, :ingredients_unit, :ingredients_name)
+      params.require(:ingredient).permit(:ingredients_unit, :ingredients_name)
     end
 end
