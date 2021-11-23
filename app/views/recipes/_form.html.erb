@@ -1,43 +1,21 @@
-<%= form_with(model: @ingredient) do |form| %>
+<%= form_with model: @recipe do |form| %>
+
   <div class="field form-group">
-    <% form.label :ingredients %>
-    <%= form.text_field :ingredient, class:"form-control", placeholder:"Ingredient" %>
+    <%= form.label :recipe_name, "Name" %>
+    <%= form.text_field :recipe_name, class: "form-control" %>
+
+    <%= form.label :preparation, "Preparation" %>
+    <%= form.text_field :preparation, class: "form-control" %>
   </div>
 
-  <%= link_to 'Add ingredient', new_ingredient_path, class: "btn btn-secondary" %>
+  <h2>Ingredients</h2>
 
-<% end %>
-
-<%= form_with(model: recipe) do |form| %>
-  <% if recipe.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
-
-      <ul>
-        <% recipe.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+  <%= form.fields_for :ingredients_recipes do |ingredients_subform| %>
+    <%= ingredients_subform.select :ingredient_id, Ingredient.all.map { |i| ["#{i.ingredients_name} (#{i.ingredients_unit})", i.id] } %>
+    <%= ingredients_subform.label :quantity, "Quantity" %>
+    <%= ingredients_subform.number_field :quantity, class: "form-control" %>
   <% end %>
 
-  <div class="field form-group">
-    <% form.label :preparation %>
-    <%= form.text_field :preparation, class:"form-control", placeholder:"Preparation" %>
-  </div>
-
-  <div class="field form-group">
-    <% form.label :preparation_time %>
-    <%= form.number_field :preparation_time, class:"form-control", placeholder:"Preparation time" %>
-  </div>
-
-  <div class="field form-group">
-    <% form.label :multiplier %>
-    <%= form.text_field :multiplier, class:"form-control", placeholder:"Multiplier" %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "Create Recipe", class: 'btn btn-secondary' %>
-  </div>
-
+  <%= form.submit "Create Recipe", class: 'btn btn-secondary' %>
 <% end %>
+
