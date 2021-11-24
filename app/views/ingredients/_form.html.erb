@@ -16,16 +16,6 @@
     <%= form.text_field :name, class:"form-control", placeholder:"Ingredient Name"  %>
   </div>
 
-    <div class="field form-group">
-      <% form.label :ingredients_recipe_quantity %>
-      <%= form.text_field :ingredients_recipe_quantity, class:"form-control", placeholder:"Quantity"  %>
-    </div>
-
-  <div class="field form-group">
-    <% form.label :ingredients_recipe_unit %>
-    <%= form.text_field :ingredients_recipe_unit, class:"form-control", placeholder:"Unit"  %>
-  </div>
-
   <div class="actions">
     <%= form.submit "Create Ingredient", class: 'btn btn-secondary'  %>
   </div>
