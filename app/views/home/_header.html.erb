@@ -11,15 +11,17 @@
 <!--        <li class="nav-item">-->
 <!--          <a class="nav-link active" aria-current="page" href="#">Home</a>-->
 <!--        </li>-->
-        <li class="nav-item">
-          <%= link_to "My Recipes", recipes_path, class: "nav-link" %>
-        </li>
-
-        <li class="nav-item">
-          <%= link_to "New Recipe", new_recipe_path, class: "nav-link" %>
-        </li>
 
         <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "My Recipes", recipes_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "New Recipe", new_recipe_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "New Ingredient", new_ingredient_path, class: "nav-link" %>
+          </li>
           <li class="nav-item">
             <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link" %>
           </li>

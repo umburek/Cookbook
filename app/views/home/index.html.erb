@@ -1,14 +1,14 @@
 <h1>Recipes</h1>
 
 <% @recipes.each do |recipe| %>
-  <h2><%= recipe.recipe_name %></h2>
+  <h2><%= recipe.name %></h2>
 
   <table class="table  table-stripes table-bordered table-hover">
     <tbody>
     <% recipe.ingredients_recipes.each do |ingredients_recipe| %>
       <tr>
-        <td><%= ingredients_recipe.ingredient.ingredients_name %></td>
-        <td><%= "#{ingredients_recipe.quantity} #{ingredients_recipe.ingredient.ingredients_unit}" %></td>
+        <td><%= ingredients_recipe.ingredient.name %></td>
+        <td><%= "#{ingredients_recipe.quantity} #{ingredients_recipe.unit}" %></td>
       </tr>
     <% end %>
     </tbody>

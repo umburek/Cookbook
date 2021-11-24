@@ -3,6 +3,7 @@
 <table class="table  table-stripes table-bordered table-hover">
   <thead>
     <tr>
+      <th>Name</th>
       <th>Ingredients</th>
       <th>Preparation</th>
       <th>Preparation time</th>
@@ -16,6 +17,7 @@
     <% @recipes.each do |recipe| %>
       <%# if recipe.user == current_user %>
       <tr>
+        <td><%= recipe.name %></td>
         <td><%= recipe.preparation %></td>
         <td><%= recipe.preparation_time %></td>
         <td><%= recipe.multiplier %></td>

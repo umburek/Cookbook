@@ -1,5 +1,5 @@
 <div class="jumbotron">
-  <h1 class="display-4"><%= @recipe.ingredients.map(&:ingredients_name).join(', ') %></h1>
+  <h1 class="display-4"><%= @recipe.ingredients.map(&:name).join(', ') %></h1>
   <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured
     content or information.</p>
   <hr class="my-4">
@@ -14,7 +14,7 @@
 <ul>
   <% @recipe.ingredients_recipes.each do |i| %>
     <li>
-      <%= "#{i.ingredient.ingredients_name} #{i.quantity} (#{i.ingredient.ingredients_unit})" %>
+      <%= "#{i.ingredient.name} #{i.quantity} (#{i.unit})" %>
     </li>
   <% end %>
 </ul>

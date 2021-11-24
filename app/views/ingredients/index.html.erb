@@ -16,7 +16,7 @@
         <td><%= ingredient.ingredients_name %></td>
         <td><% @ingredients_recipes.each do |ingredients_recipe| %>
             <%= ingredients_recipe.quantity %></td>
-        <td><%= ingredient.ingredients_unit %></td>
+        <td><%= ingredients_recipe.unit %></td>
         <td><%= link_to 'Show', ingredient, class:"btn btn-secondary" %></td>
         <td><%= link_to 'Edit', edit_ingredient_path(ingredient), class:"btn btn-secondary" %></td>
         <td><%= link_to 'Destroy', ingredient, class:"btn btn-secondary", method: :delete, data: { confirm: 'Are you sure?' } %></td>

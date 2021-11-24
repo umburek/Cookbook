@@ -78,7 +78,7 @@ class RecipesController < ApplicationController
         :preparation,
         :preparation_time,
         :multiplier,
-        :recipe_name,
+        :name,
         ingredients_recipes_attributes: [:id, :quantity, :ingredient_id]
       )
     end

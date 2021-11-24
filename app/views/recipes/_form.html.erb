@@ -1,8 +1,8 @@
 <%= form_with model: @recipe do |form| %>
 
   <div class="field form-group">
-    <%= form.label :recipe_name, "Name" %>
-    <%= form.text_field :recipe_name, class: "form-control" %>
+    <%= form.label :name, "Name" %>
+    <%= form.text_field :name, class: "form-control" %>
 
     <%= form.label :preparation, "Preparation" %>
     <%= form.text_field :preparation, class: "form-control" %>
@@ -11,7 +11,7 @@
   <h2>Ingredients</h2>
 
   <%= form.fields_for :ingredients_recipes do |ingredients_subform| %>
-    <%= ingredients_subform.select :ingredient_id, Ingredient.all.map { |i| ["#{i.ingredients_name} (#{i.ingredients_unit})", i.id] } %>
+    <%= ingredients_subform.select :ingredient_id, Ingredient.all.map { |i| ["#{i.name}"] } %>
     <%= ingredients_subform.label :quantity, "Quantity" %>
     <%= ingredients_subform.number_field :quantity, class: "form-control" %>
   <% end %>
