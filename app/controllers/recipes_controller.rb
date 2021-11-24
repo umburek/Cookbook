@@ -27,7 +27,6 @@ class RecipesController < ApplicationController
   def create
     # @recipe = Recipe.new(recipe_params)
     @recipe = current_user.recipes.build(recipe_params)
-    binding.pry
     respond_to do |format|
       if @recipe.save
         format.html { redirect_to @recipe, notice: "Recipe was successfully created." }
