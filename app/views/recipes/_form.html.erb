@@ -1,20 +1,27 @@
 <%= form_with model: @recipe do |form| %>
 
   <div class="field form-group">
-    <%= form.label :name, "Name" %>
-    <%= form.text_field :name, class: "form-control" %>
+    <% form.label :name %>
+    <%= form.text_field :name, class: "form-control", placeholder: "Recipe name" %>
 
-    <%= form.label :preparation, "Preparation" %>
-    <%= form.text_field :preparation, class: "form-control" %>
+    <% form.label :preparation %>
+    <%= form.text_area :preparation, size: "70x5", class: "form-control", placeholder: "Preparation" %>
+
+    <% form.label :preparation_time %>
+    <%= form.number_field :preparation_time, class: "form-control", placeholder: "Preparation time in minutes" %>
   </div>
 
   <h2>Ingredients</h2>
+  <%#= form.fields_for :ingredients_recipes do |ingredients_subform| %>
+    <%#= ingredients_subform.select :ingredient_id, Ingredient.all.map { |i| ["#{i.name}", i.id] } %>
+    <%# ingredients_subform.label :quantity %>
+    <%#= ingredients_subform.number_field :quantity, class: "form-control", placeholder: "Quantity in grams" %>
+  <%# end %>
 
-  <%= form.fields_for :ingredients_recipes do |ingredients_subform| %>
+    <%= form.fields_for :ingredients_recipes do |ingredients_subform| %>
     <%= ingredients_subform.select :ingredient_id, Ingredient.all.map { |i| ["#{i.name}", i.id] } %>
-    <%= ingredients_subform.label :quantity, "Quantity" %>
-    <%= ingredients_subform.number_field :quantity, class: "form-control" %>
-  <% end %>
+      <%= link_to_add_association "Add ingredient", ingredients_subform, :ingredients_recipes %>
+    <% end %>
 
   <%= form.submit "Create Recipe", class: 'btn btn-secondary' %>
 <% end %>
