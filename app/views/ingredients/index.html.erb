@@ -13,10 +13,10 @@
   <tbody>
     <% @ingredients.each do |ingredient| %>
       <tr>
-        <td><%= ingredient.ingredients_name %></td>
-        <td><% @ingredients_recipes.each do |ingredients_recipe| %>
-            <%= ingredients_recipe.quantity %></td>
-        <td><%= ingredients_recipe.unit %></td>
+        <td><%= ingredient.name %></td>
+        <td><% @recipe_ingredients.each do |recipe_ingredient| %>
+            <%= recipe_ingredient.quantity %></td>
+        <td><%= recipe_ingredient.unit %></td>
         <td><%= link_to 'Show', ingredient, class:"btn btn-secondary" %></td>
         <td><%= link_to 'Edit', edit_ingredient_path(ingredient), class:"btn btn-secondary" %></td>
         <td><%= link_to 'Destroy', ingredient, class:"btn btn-secondary", method: :delete, data: { confirm: 'Are you sure?' } %></td>

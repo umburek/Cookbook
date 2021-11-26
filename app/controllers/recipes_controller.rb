@@ -17,7 +17,7 @@ class RecipesController < ApplicationController
   def new
     # @recipe = Recipe.new
     @recipe = current_user.recipes.build
-    @ingredients_value = 1.times { @recipe.ingredients_recipes.build }
+    1.times { @recipe.recipe_ingredients.build }
   end
 
   # GET /recipes/1/edit
@@ -86,7 +86,7 @@ class RecipesController < ApplicationController
         :preparation_time,
         :multiplier,
         :name,
-        ingredients_recipes_attributes: [:id, :quantity, :ingredient_id]
+        recipe_ingredients_attributes: [:id, :quantity, :ingredient_id]
       )
     end
 end

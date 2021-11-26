@@ -4,7 +4,7 @@ class IngredientsController < ApplicationController
   # GET /ingredients or /ingredients.json
   def index
     @ingredients = Ingredient.all
-    @ingredients_recipes = IngredientsRecipe.find(IngredientsRecipe(params[id]) == Ingredient(params[id]))
+    @recipe_ingredients = RecipeIngredient.find(RecipeIngredient(params[id]) == Ingredient(params[id]))
   end
 
   # GET /ingredients/1 or /ingredients/1.json

@@ -1,16 +1,6 @@
 <p>
-  <strong>Ingredients name:</strong>
+  <strong>Ingredient name:</strong>
   <%= @ingredient.name %>
-</p>
-
-<p>
-  <strong>Ingredients quantity:</strong>
-  <% @ingredients_recipe.quantity %>
-</p>
-
-<p>
-  <strong>Ingredients unit:</strong>
-  <%= @ingredients_recipe.unit %>
 </p>
 
 <%= link_to 'Edit', edit_ingredient_path(@ingredient), class:"btn btn-secondary" %> |

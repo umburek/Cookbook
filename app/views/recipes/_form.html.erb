@@ -12,16 +12,16 @@
   </div>
 
   <h2>Ingredients</h2>
-  <%#= form.fields_for :ingredients_recipes do |ingredients_subform| %>
-    <%#= ingredients_subform.select :ingredient_id, Ingredient.all.map { |i| ["#{i.name}", i.id] } %>
-    <%# ingredients_subform.label :quantity %>
-    <%#= ingredients_subform.number_field :quantity, class: "form-control", placeholder: "Quantity in grams" %>
-  <%# end %>
-
-    <%= form.fields_for :ingredients_recipes do |ingredients_subform| %>
+  <%= form.fields_for :recipe_ingredients do |ingredients_subform| %>
     <%= ingredients_subform.select :ingredient_id, Ingredient.all.map { |i| ["#{i.name}", i.id] } %>
-      <%= link_to_add_association "Add ingredient", ingredients_subform, :ingredients_recipes %>
-    <% end %>
+    <% ingredients_subform.label :quantity %>
+    <%= ingredients_subform.number_field :quantity, class: "form-control", placeholder: "Quantity" %>
+  <% end %>
+
+    <%#= form.fields_for :ingredients_recipes do |ingredients_subform| %>
+    <%#= ingredients_subform.select :ingredient_id, Ingredient.all.map { |i| ["#{i.name}", i.id] } %>
+      <%#= link_to_add_association "Add ingredient", ingredients_subform, :ingredients_recipes %>
+    <%# end %>
 
   <%= form.submit "Create Recipe", class: 'btn btn-secondary' %>
 <% end %>

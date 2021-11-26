@@ -12,7 +12,7 @@
 <p>
   <strong>Ingredients:</strong>
 <ul>
-  <% @recipe.ingredients_recipes.each do |i| %>
+  <% @recipe.recipe_ingredients.each do |i| %>
     <li>
       <%= "#{i.ingredient.name} #{i.quantity} (#{i.unit})" %>
     </li>

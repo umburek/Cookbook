@@ -5,10 +5,10 @@
 
   <table class="table  table-stripes table-bordered table-hover">
     <tbody>
-    <% recipe.ingredients_recipes.each do |ingredients_recipe| %>
+    <% recipe.recipe_ingredients.each do |recipe_ingredient| %>
       <tr>
-        <td><%= ingredients_recipe.ingredient.name %></td>
-        <td><%= "#{ingredients_recipe.quantity} #{ingredients_recipe.unit}" %></td>
+        <td><%= recipe_ingredient.ingredient.name %></td>
+        <td><%= "#{recipe_ingredient.quantity} #{recipe_ingredient.unit}" %></td>
       </tr>
     <% end %>
     </tbody>
