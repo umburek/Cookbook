@@ -6,7 +6,7 @@
     <% recipe.recipe_ingredients.each do |recipe_ingredient| %>
       <tr>
         <td><%= recipe_ingredient.ingredient.name %></td>
-        <td><%= "#{recipe_ingredient.quantity} #{recipe_ingredient.unit}" %></td>
+        <td><%= "#{number_with_precision(recipe_ingredient.quantity, precision: 2, significant: false, strip_insignificant_zeros: true)} #{recipe_ingredient.unit}" %></td>
       </tr>
     <% end %>
     </tbody>
@@ -22,7 +22,5 @@
   </table>
   <br>
 <% end %>
-
-<br>
 
 <%= link_to 'New Recipe', new_recipe_path, class: "btn btn-secondary" %>
