@@ -1,28 +1,20 @@
 <%= form_with model: @recipe do |form| %>
 
   <div class="field form-group">
-    <% form.label :name %>
     <%= form.text_field :name, class: "form-control", placeholder: "Recipe name" %>
-
-    <% form.label :preparation %>
     <%= form.text_area :preparation, size: "70x5", class: "form-control", placeholder: "Preparation" %>
-
-    <% form.label :preparation_time %>
     <%= form.number_field :preparation_time, class: "form-control", placeholder: "Preparation time in minutes" %>
   </div>
 
+  <br>
   <h2>Ingredients</h2>
   <%= form.fields_for :recipe_ingredients do |ingredients_subform| %>
     <%= ingredients_subform.select :ingredient_id, Ingredient.all.map { |i| ["#{i.name}", i.id] } %>
-    <% ingredients_subform.label :quantity %>
     <%= ingredients_subform.number_field :quantity, class: "form-control", placeholder: "Quantity" %>
+    <%= ingredients_subform.text_field :unit, class: "form-control", placeholder: "Unit" %>
   <% end %>
 
-    <%#= form.fields_for :ingredients_recipes do |ingredients_subform| %>
-    <%#= ingredients_subform.select :ingredient_id, Ingredient.all.map { |i| ["#{i.name}", i.id] } %>
-      <%#= link_to_add_association "Add ingredient", ingredients_subform, :ingredients_recipes %>
-    <%# end %>
-
+  <br>
   <%= form.submit "Create Recipe", class: 'btn btn-secondary' %>
 <% end %>
 
