@@ -2,15 +2,14 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field form-group">
-    <% f.label :email %><br />
     <%= f.email_field :email, class: "form-conrol", placeholder: "Email", autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field form-group">
-    <% f.label :password %><br />
-    <%= f.password_field :password, class: "form-conrol", placeholder: "Email", autocomplete: "current-password" %>
+    <%= f.password_field :password, class: "form-conrol", placeholder: "Password", autocomplete: "current-password" %>
   </div>
 
+  <br>
   <% if devise_mapping.rememberable? %>
     <div class="field form-group">
       <%= f.check_box :remember_me %>

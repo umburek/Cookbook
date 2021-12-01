@@ -9,9 +9,10 @@
   <br>
   <h2>Ingredients</h2>
   <%= form.fields_for :recipe_ingredients do |ingredients_subform| %>
-    <%= ingredients_subform.select :ingredient_id, Ingredient.all.map { |i| ["#{i.name}", i.id] } %>
+    <%= ingredients_subform.select :ingredient_id, Ingredient.all.order(:name).map { |i| ["#{i.name}", i.id] } %>
     <%= ingredients_subform.number_field :quantity, class: "form-control", placeholder: "Quantity" %>
     <%= ingredients_subform.text_field :unit, class: "form-control", placeholder: "Unit" %>
+    <br>
   <% end %>
 
   <br>
