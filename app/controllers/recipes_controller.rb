@@ -2,7 +2,6 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :correct_user, only: [:edit, :update, :destroy]
-  before_action :increment_ingredients, only: :create
 
   # GET /recipes or /recipes.json
   def index
@@ -65,12 +64,6 @@ class RecipesController < ApplicationController
   def correct_user
     @recipe = current_user.recipes.find_by(id: params[:id])
     redirect_to recipes_path, notice: "Not Authorized To Edit This Recipe" if @recipe.nil?
-  end
-
-  def increment_ingredients
-    value = 1
-    value = value + 1
-    @value = value
   end
 
   private
