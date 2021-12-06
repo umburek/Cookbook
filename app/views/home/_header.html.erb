@@ -19,7 +19,7 @@
             <%= link_to "New Ingredient", new_ingredient_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+            <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Edit Profile", edit_user_registration_path, class: "nav-link" %>
@@ -37,11 +37,11 @@
           <%= link_to "About", home_about_path, class: "nav-link" %>
         </li>
 
-        <%# if user_signed_in == @admin %>
-<!--          <li class="nav-item">-->
-            <%#= link_to "Admin panel", home_about_path, class: "nav-link" %>
-<!--          </li>-->
-        <%# end %>
+        <% if @user_role = "admin" %>
+          <li class="nav-item">
+            <%= link_to "Admin panel", home_admin_panel_path, class: "nav-link" %>
+          </li>
+        <% end %>
 
       </ul>
       <form class="d-flex">

@@ -5,11 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :recipes
-  belongs_to :role
   before_create :set_default_role
+  enum role: [:admin, :registered]
 
   private
   def set_default_role
-    self.role ||= Role.fing_by_name('registered')
+    self.role = 'registered'
   end
 end
