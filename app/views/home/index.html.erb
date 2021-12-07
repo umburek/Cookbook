@@ -1,4 +1,6 @@
 <h1><%= "All recipes" %></h1>
+<br>
+<%= link_to 'New Recipe', new_recipe_path, class: "btn btn-secondary" %>
 
 <% @recipes.each do |recipe| %>
   <h2><%= recipe.name %></h2>
@@ -24,5 +26,3 @@
   </table>
   <br>
 <% end %>
-
-<%= link_to 'New Recipe', new_recipe_path, class: "btn btn-secondary" %>
