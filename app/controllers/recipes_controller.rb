@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, except: [:index, :show]
+  # before_action :authenticate_user!, except: [:index, :show]
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   # GET /recipes or /recipes.json
@@ -15,8 +15,11 @@ class RecipesController < ApplicationController
 
   # GET /recipes/new
   def new
-    # @recipe = Recipe.new
-    @recipe = current_user.recipes.build
+    if current_user.nil?
+      @recipe = Recipe.new
+    else
+      @recipe = current_user.recipes.build
+    end
     10.times { @recipe.recipe_ingredients.build }
   end
 
@@ -26,8 +29,11 @@ class RecipesController < ApplicationController
 
   # POST /recipes or /recipes.json
   def create
-    # @recipe = Recipe.new(recipe_params)
-    @recipe = current_user.recipes.build(recipe_params)
+    if current_user.nil?
+       @recipe = Recipe.new(recipe_params)
+    else
+       @recipe = current_user.recipes.build(recipe_params)
+    end
     respond_to do |format|
       if @recipe.save
         format.html { redirect_to @recipe, notice: "Recipe was successfully created." }
