@@ -1,7 +1,7 @@
 <%= form_with model: @recipe do |form| %>
   <h1>Admin panel</h1>
   <br>
-  <% @recipes_to_accept.each do |recipe| %>
+  <% @recipe_to_accept.each do |recipe| %>
     <h2> <%= recipe.name %> </h2>
 
     <table class="table  table-stripes table-bordered table-hover">
@@ -23,9 +23,7 @@
       </tr>
       </tbody>
     </table>
-    <%= form.check_box :accept %> Recipe Accepted
-    </br>
-    <%= form.submit "Save", class: 'btn btn-secondary' %>
+    <%= link_to 'Accept', confirm_recipe_path(id: recipe.id), method: :post %>
     <br>
     <br>
   <% end %>

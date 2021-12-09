@@ -1,0 +1,2 @@
+module ConfirmRecipesHelper
+end
