@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   resource :confirm_recipe, only: :create
   post 'admin_panel/index'
   get 'admin_panel/index'
-  get 'home/about'
+  # get 'home/about'
   root 'home#index'
 end

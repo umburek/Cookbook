@@ -1,11 +1,10 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[ show edit update destroy ]
-  # before_action :authenticate_user!, except: [:index, :show]
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   # GET /recipes or /recipes.json
   def index
-    @recipe = current_user.recipes
+    @recipes = current_user.recipes
     @user_email = current_user.email
   end
 

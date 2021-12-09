@@ -1,30 +1,28 @@
-<%= form_with model: @recipe do |form| %>
-  <h1>Admin panel</h1>
-  <br>
-  <% @recipe_to_accept.each do |recipe| %>
-    <h2> <%= recipe.name %> </h2>
+<h1>Admin panel</h1>
+<br>
+<% @recipes_to_accept.each do |recipe| %>
+  <h2> <%= recipe.name %> </h2>
 
-    <table class="table  table-stripes table-bordered table-hover">
-      <tbody>
-      <% recipe.recipe_ingredients.each do |recipe_ingredient| %>
-        <tr>
-          <td> <% recipe_ingredient.ingredient.name %> </td>
-          <td> <% "#{number_with_precision(recipe_ingredient.quantity, precision: 2, significant: false, strip_insignificant_zeros: true)} #{recipe_ingredient.unit}" %></td>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
-
-    <table class="table  table-stripes table-bordered table-hover">
-      <tbody>
+  <table class="table  table-stripes table-bordered table-hover">
+    <tbody>
+    <% recipe.recipe_ingredients.each do |recipe_ingredient| %>
       <tr>
-        <td><%= recipe.preparation %></td>
-        <td><%= recipe.preparation_time %> minutes</td>
+        <td> <%= recipe_ingredient.ingredient.name %> </td>
+        <td> <%= "#{number_with_precision(recipe_ingredient.quantity, precision: 2, significant: false, strip_insignificant_zeros: true)} #{recipe_ingredient.unit}" %></td>
       </tr>
-      </tbody>
-    </table>
-    <%= link_to 'Accept', confirm_recipe_path(id: recipe.id), method: :post %>
-    <br>
-    <br>
-  <% end %>
+    <% end %>
+    </tbody>
+  </table>
+
+  <table class="table  table-stripes table-bordered table-hover">
+    <tbody>
+    <tr>
+      <td><%= recipe.preparation %></td>
+      <td><%= recipe.preparation_time %> minutes</td>
+    </tr>
+    </tbody>
+  </table>
+  <%= link_to 'Accept', confirm_recipe_path(id: recipe.id), method: :post %>
+  <br>
+  <br>
 <% end %>

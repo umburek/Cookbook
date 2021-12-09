@@ -4,7 +4,7 @@ class IngredientsController < ApplicationController
   # GET /ingredients or /ingredients.json
   def index
     @ingredients = Ingredient.all
-    # @recipe_ingredients = RecipeIngredient.find(RecipeIngredient(params[id]) == Ingredient(params[id]))
+    @current_user = current_user
   end
 
   # GET /ingredients/1 or /ingredients/1.json
@@ -14,6 +14,7 @@ class IngredientsController < ApplicationController
   # GET /ingredients/new
   def new
     @ingredient = Ingredient.new
+    @current_user = current_user
   end
 
   # GET /ingredients/1/edit
