@@ -30,9 +30,9 @@ class RecipesController < ApplicationController
   # POST /recipes or /recipes.json
   def create
     if current_user.nil?
-       @recipe = Recipe.new(recipe_params)
+      @recipe = Recipe.new(recipe_params)
     else
-       @recipe = current_user.recipes.build(recipe_params)
+      @recipe = current_user.recipes.build(recipe_params)
     end
     respond_to do |format|
       if @recipe.save
@@ -73,21 +73,22 @@ class RecipesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_recipe
-      @recipe = Recipe.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def recipe_params
-      params.require(:recipe).permit(
-        :ingredients,
-        :preparation,
-        :preparation_time,
-        :multiplier,
-        :name,
-        :accept,
-        recipe_ingredients_attributes: [:id, :quantity, :unit, :ingredient_id]
-      )
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_recipe
+    @recipe = Recipe.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def recipe_params
+    params.require(:recipe).permit(
+      :ingredients,
+      :preparation,
+      :preparation_time,
+      :multiplier,
+      :name,
+      :accept,
+      recipe_ingredients_attributes: [:id, :quantity, :unit, :ingredient_id]
+    )
+  end
 end

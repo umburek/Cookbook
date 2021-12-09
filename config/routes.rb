@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :recipes
   resources :ingredients
+  post 'admin_panel/index'
   get 'admin_panel/index'
   get 'home/about'
   root 'home#index'
