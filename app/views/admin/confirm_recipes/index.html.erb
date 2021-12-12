@@ -1,6 +1,7 @@
 <h1>Admin panel</h1>
 <br>
-<% @recipes_to_accept.each do |recipe| %>
+
+<% @recipes.each do |recipe| %>
   <h2> <%= recipe.name %> </h2>
 
   <table class="table  table-stripes table-bordered table-hover">
@@ -22,7 +23,7 @@
     </tr>
     </tbody>
   </table>
-  <%= link_to 'Accept', confirm_recipe_path(id: recipe.id), method: :post %>
+  <%= link_to 'Accept', admin_confirm_recipes_path(id: recipe.id), method: :post %>
   <br>
   <br>
 <% end %>

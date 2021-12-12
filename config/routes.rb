@@ -2,9 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
   resources :recipes
   resources :ingredients
-  resource :confirm_recipe, only: :create
-  post 'admin_panel/index'
-  get 'admin_panel/index'
-  # get 'home/about'
+
+  namespace :admin do
+    root 'confirm_recipes#index'
+
+    resources :confirm_recipes, only: [:index, :create]
+  end
+
   root 'home#index'
 end

@@ -14,11 +14,11 @@ class RecipesController < ApplicationController
 
   # GET /recipes/new
   def new
-    if current_user.nil?
-      @recipe = Recipe.new
-    else
-      @recipe = current_user.recipes.build
-    end
+    @recipe = Recipe.new(
+      user_id: current_user&.id,
+      accept: current_user.present?
+    )
+
     10.times { @recipe.recipe_ingredients.build }
   end
 
@@ -31,7 +31,7 @@ class RecipesController < ApplicationController
     if current_user.nil?
       @recipe = Recipe.new(recipe_params)
     else
-      @recipe = current_user.recipes.build(recipe_params)
+      @recipe = current_user.recipes.build(recipe_params.merge!(accept: true))
     end
     respond_to do |format|
       if @recipe.save
@@ -84,9 +84,7 @@ class RecipesController < ApplicationController
       :ingredients,
       :preparation,
       :preparation_time,
-      :multiplier,
       :name,
-      :accept,
       recipe_ingredients_attributes: [:id, :quantity, :unit, :ingredient_id]
     )
   end
