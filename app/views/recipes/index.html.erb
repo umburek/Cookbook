@@ -1,10 +1,10 @@
 <h1><%= "#@user_email recipes" %></h1>
-
+<br>
 <% @recipes.each do |recipe| %>
   <h2><%= recipe.name %></h2>
   <%= link_to 'Show', recipe, class:"btn btn-secondary" %>
   <%= link_to 'Edit', edit_recipe_path(recipe), class:"btn btn-secondary" %>
-  <%= link_to 'Destroy', recipe, class:"btn btn-secondary", method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Delete', recipe, class:"btn btn-secondary", method: :delete, data: { confirm: 'Are you sure?' } %>
 
   <table class="table  table-stripes table-bordered table-hover">
     <tbody>
