@@ -5,9 +5,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root 'confirm_recipes#index'
-
     resources :confirm_recipes, only: [:index, :create]
   end
 
   root 'home#index'
+  get '/search', to: "home#search"
 end

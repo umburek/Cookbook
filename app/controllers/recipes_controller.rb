@@ -72,6 +72,15 @@ class RecipesController < ApplicationController
     redirect_to recipes_path, notice: "Not Authorized To Edit This Recipe" if @recipe.nil?
   end
 
+  def search
+    if params[:search].blank?
+      redirect_to recipes_path and return
+    else
+      @parameter = params[:search].downcase
+      @results = Recipe.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
