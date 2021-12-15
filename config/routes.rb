@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root 'confirm_recipes#index'
-    resources :confirm_recipes, only: [:index, :create]
+    resources :confirm_recipes, only: [:index, :create, :destroy]
   end
 
   root 'home#index'
