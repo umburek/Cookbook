@@ -18,7 +18,6 @@ class RecipesController < ApplicationController
       user_id: current_user&.id,
       accept: current_user.present?
     )
-
     10.times { @recipe.recipe_ingredients.build }
   end
 
@@ -73,12 +72,12 @@ class RecipesController < ApplicationController
   end
 
   def search
-    if params[:search].blank?
-      redirect_to recipes_path and return
-    else
-      @parameter = params[:search].downcase
-      @results = Recipe.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")
-    end
+    # if params[:search].blank?
+    #   redirect_to recipes_path and return
+    # else
+    #   @parameter = params[:search].downcase
+    #   @results = Recipe.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")
+    # end
   end
 
   private

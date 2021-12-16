@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   def index
-    @recipe = Recipe.all
+    @q = Recipe.ransack(params[:q])
+    @recipes = @q.result(distinct: true)
     @current_user = current_user
   end
 end

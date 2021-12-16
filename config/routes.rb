@@ -9,5 +9,4 @@ Rails.application.routes.draw do
   end
 
   root 'home#index'
-  get '/search', to: "home#search"
 end

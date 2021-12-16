@@ -1,8 +1,10 @@
 <h1><%= "All recipes" %></h1>
 <br>
+<%= render 'home/search_form.html.erb' %>
+<br>
 <%= link_to 'New Recipe', new_recipe_path, class: "btn btn-secondary" %>
 
-<% Recipe.all.where(accept: true).each do |recipe| %>
+<% Recipe.all.where(accept: true).last(5).each do |recipe| %>
   <h2><%= recipe.name %></h2>
 
   <table class="table  table-stripes table-bordered table-hover">
