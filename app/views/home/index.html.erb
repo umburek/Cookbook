@@ -1,31 +1,59 @@
-<h1><%= "All recipes" %></h1>
 <br>
 <%= render 'home/search_form.html.erb' %>
 <br>
-<%= link_to 'New Recipe', new_recipe_path, class: "btn btn-secondary" %>
 
-<% Recipe.all.where(accept: true).last(5).each do |recipe| %>
-  <h2><%= recipe.name %></h2>
+<% if params[:q].nil? %>
+  <h1><%= "Last 5 recipes" %></h1>
+  <%= link_to 'New Recipe', new_recipe_path, class: "btn btn-secondary" %>
+  <br><br>
+  <% @recipes_last5.each do |recipe| %>
+    <h2><%= recipe.name %></h2>
+    <table class="table  table-stripes table-bordered table-hover">
+      <tbody>
+      <% recipe.recipe_ingredients.each do |recipe_ingredient| %>
+        <tr>
+          <td><%= recipe_ingredient.ingredient.name %></td>
+          <td><%= "#{number_with_precision(recipe_ingredient.quantity, precision: 2, significant: false, strip_insignificant_zeros: true)} #{recipe_ingredient.unit}" %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
 
-  <table class="table  table-stripes table-bordered table-hover">
-    <tbody>
-    <% recipe.recipe_ingredients.each do |recipe_ingredient| %>
+    <table class="table  table-stripes table-bordered table-hover">
+      <tbody>
       <tr>
-        <td><%= recipe_ingredient.ingredient.name %></td>
-        <td><%= "#{number_with_precision(recipe_ingredient.quantity, precision: 2, significant: false, strip_insignificant_zeros: true)} #{recipe_ingredient.unit}" %></td>
+        <td><%= recipe.preparation %></td>
+        <td><%= recipe.preparation_time %> minutes</td>
       </tr>
-    <% end %>
-    </tbody>
-  </table>
+      </tbody>
+    </table>
+    <br>
+  <% end %>
 
-  <table class="table  table-stripes table-bordered table-hover">
-    <tbody>
-    <tr>
-      <td><%= recipe.preparation %></td>
-      <td><%= recipe.preparation_time %> minutes</td>
-    </tr>
-    </tbody>
-  </table>
+<% else %>
+  <h1><%= "Search results" %></h1>
   <br>
+  <% @recipes.each do |recipe| %>
+    <h2><%= recipe.name %></h2>
+    <table class="table  table-stripes table-bordered table-hover">
+      <tbody>
+      <% recipe.recipe_ingredients.each do |recipe_ingredient| %>
+        <tr>
+          <td><%= recipe_ingredient.ingredient.name %></td>
+          <td><%= "#{number_with_precision(recipe_ingredient.quantity, precision: 2, significant: false, strip_insignificant_zeros: true)} #{recipe_ingredient.unit}" %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
 
+    <table class="table  table-stripes table-bordered table-hover">
+      <tbody>
+      <tr>
+        <td><%= recipe.preparation %></td>
+        <td><%= recipe.preparation_time %> minutes</td>
+      </tr>
+      </tbody>
+    </table>
+    <br>
+  <% end %>
 <% end %>
