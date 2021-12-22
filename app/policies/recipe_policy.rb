@@ -9,7 +9,16 @@ class RecipePolicy < ApplicationPolicy
     end
   end
 
-  def update?
-    user.admin? or not record.accept?
+  def index?
+    true
   end
+
+  def update?
+    user.present? || user.admin?
+  end
+
+  def destroy?
+    user.present? || user.admin?
+  end
+
 end

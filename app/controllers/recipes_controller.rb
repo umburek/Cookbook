@@ -6,6 +6,7 @@ class RecipesController < ApplicationController
   def index
     @recipes = current_user.recipes
     @user_email = current_user.email
+    authorize @recipes
   end
 
   # GET /recipes/1 or /recipes/1.json
@@ -18,7 +19,7 @@ class RecipesController < ApplicationController
       user_id: current_user&.id,
       accept: current_user.present?
     )
-    10.times { @recipe.recipe_ingredients.build }
+    20.times { @recipe.recipe_ingredients.build }
   end
 
   # GET /recipes/1/edit
