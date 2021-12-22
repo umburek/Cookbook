@@ -5,7 +5,7 @@
 
   <div class="field form-group">
     <% f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-conrol", placeholder: "Email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -29,6 +29,26 @@
   <div class="field form-group">
     <% f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password", class: "form-conrol", placeholder: "Current Password" %>
+  </div>
+
+  <div class="field form-group">
+    <% f.label :nick %> <br />
+    <%= f.text_field :nick, autocomplete: "nick", class: "form-conrol", placeholder: "Nick" %>
+  </div>
+
+  <div class="field form-group">
+    <% f.label :name %> <br />
+    <%= f.text_field :name, autocomplete: "name", class: "form-conrol", placeholder: "Name" %>
+  </div>
+
+  <div class="field form-group">
+    <% f.label :surname %> <br />
+    <%= f.text_field :surname, autocomplete: "surname", class: "form-conrol", placeholder: "Surname" %>
+  </div>
+
+  <div class="field form-group">
+    <% f.label :phone %> <br />
+    <%= f.number_field :phone, autocomplete: "phone", class: "form-conrol", placeholder: "Phone number" %>
   </div>
 
   <br/>

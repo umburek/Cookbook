@@ -6,6 +6,10 @@ class User < ApplicationRecord
   before_create :set_default_role
   enum role: [:admin, :registered]
 
+  # accepts_nested_attributes_for :user, nil: proc {
+  #   |attr| attr[]
+  # }
+
   private
   def set_default_role
     self.role = :registered

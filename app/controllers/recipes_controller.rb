@@ -5,7 +5,11 @@ class RecipesController < ApplicationController
   # GET /recipes or /recipes.json
   def index
     @recipes = current_user.recipes
-    @user_email = current_user.email
+    if current_user.nick.blank?
+      @user_nick = current_user.email
+    else
+      @user_nick = current_user.nick
+    end
     authorize @recipes
   end
 
