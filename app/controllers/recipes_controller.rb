@@ -39,6 +39,7 @@ class RecipesController < ApplicationController
     end
     respond_to do |format|
       if @recipe.save
+        RecipeMailer.with(user: current_user, recipe: @recipe).recipe_created.deliver_now
         format.html { redirect_to @recipe, notice: "Recipe was successfully created." }
         format.json { render :show, status: :created, location: @recipe }
       else

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+</head>
+<body>
+<h1>Welcome <%= @user.email %></h1>
+<p>Thanks for adding a new recipe.</p>
+<br>
+<h2><%= @recipe.name %></h2>
+<table class="table  table-stripes table-bordered table-hover">
+  <tbody>
+  <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
+    <tr>
+      <td><%= recipe_ingredient.ingredient.name %></td>
+      <td><%= "#{number_with_precision(recipe_ingredient.quantity, precision: 2, significant: false, strip_insignificant_zeros: true)} #{recipe_ingredient.unit}" %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<table class="table  table-stripes table-bordered table-hover">
+  <tbody>
+  <tr>
+    <td><%= @recipe.preparation %></td>
+    <td><%= @recipe.preparation_time %> minutes</td>
+  </tr>
+  </tbody>
+</table>
+</html>
