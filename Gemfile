@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem 'sidekiq'
 gem 'sidekiq-cron'
 gem 'redis-namespace'
-gem 'mailcatcher'
+gem "letter_opener", group: :development
 
 ruby '3.0.1'
 
