@@ -5,6 +5,7 @@ gem 'sidekiq'
 gem 'sidekiq-cron'
 gem 'redis-namespace'
 gem "letter_opener", group: :development
+gem "rspec-rails"
 
 ruby '3.0.1'
 
